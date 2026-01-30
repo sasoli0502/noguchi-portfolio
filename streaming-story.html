@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配信バカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'DotGothic16', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* Matrix/Cyber Grid Background */
+            background-image:
+                linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Scanline Effect */
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px 20px;
+            padding: 40px;
+            background-color: rgba(0, 20, 0, 0.9);
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #00ff00;
+            padding-bottom: 1rem;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #00aa00;
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-code {
+            color: #000;
+            background-color: #00ff00;
+            padding: 0 5px;
+            font-weight: bold;
+        }
+
+        .chat-log {
+            font-family: 'Courier New', monospace;
+            background-color: #001100;
+            border: 1px solid #005500;
+            padding: 1rem;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            color: #ccffcc;
+        }
+
+        .system-msg {
+            color: #ffff00;
+        }
+
+        .viewer-count {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #220000;
+            color: #ff0000;
+            padding: 5px 10px;
+            border: 1px solid #ff0000;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .viewer-count span {
+            margin-left: 5px;
+        }
+
+        /* Glitch Effect on Hover for Links (can be added if links existed) */
+
+        .typewriter p {
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            white-space: nowrap;
+            /* Keeps the content on a single line */
+            margin: 0 auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
+        }
+
+        /* Pixels/Icons */
+        .icon {
+            font-size: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="viewer-count">🔴 LIVE <span>0</span></div>
+
+    <div class="container">
+        <h1>STREAMING CRAZY</h1>
+        <div class="subtitle">配信バカ、あるいは視聴者ゼロで覚醒する男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p>視聴者、ゼロ人。</p>
+        <p>配信ソフトの画面の隅っこに表示されてる数字。0。ゼロ。誰もいない。地球上の80億人のうち、今この瞬間に俺の配信を見てる人間がゼロ。</p>
+        <p>最高だ。</p>
+        <p>いや、本当はちょっと寂しいけど。でも最高なんだよ。なんでかって、誰にも気を使わなくていいから。100パーセント、純度100の、俺の脳の中身をそのまま垂れ流せる。これは趣味として異常なコスパを誇ってる。</p>
+        <p>俺は普段、聞き役が多い。</p>
+        <p>前に言った通り、人間が好きで、会話が好きで、相手の話をどんどん聞きたい。だから脳のリソースの大半を「質問を考える」「相手の言葉を分析する」「次にどう返すか組み立てる」に使ってる。アウトプットよりインプット寄り。それはそれで楽しい。
+        </p>
+        <p>でもゲーム実況は真逆だ。</p>
+        <p>相手がいない。画面の中にはキャラクターがいるけど、そいつらは俺に質問してこない。リアクションも返さない。つまり「聞く」必要がゼロ。普段質問に使ってる脳のリソースが全部余る。じゃあその余ったリソースをどうするかっていうと——全部、思考を吐き出すことに使う。
+        </p>
+        <p>これがとんでもないことになる。</p>
+
+        <div class="chat-log">
+            <span class="system-msg">[SYSTEM] Game Started...</span><br>
+            > Loading Assets...<br>
+            > Brain Connection Established...
+        </div>
+
+        <p>ギャルゲーをやっていた。名前は伏せるけど、まあいわゆる恋愛シミュレーション。画面にヒロインが映ってて、テキストが表示される。</p>
+        <p>「さそりくん、私……」</p>
+        <p>たったこれだけ。8文字。句読点込みで8文字。</p>
+        <p>普通の人なら「お、何言うんだろう」って思って次のテキストをクリックする。1秒で済む。</p>
+        <p><span class="highlight-code">俺は15分止まった。</span></p>
+        <p>「うっ——これキタ。やばいわこれ。完全に少女漫画で言ったらこれ告白のタイミングだし。てか告白どころじゃないかもしれない。これもう、なんならこの子が勢い余りすぎて体の関係とか持ち出そうとしてんのかな。いやさすがに妄想が過ぎたか。でもそのくらいの関係に行ってもいいくらいの関係性は築いてきたつもりなんだけど。ちょっと振り返ってみよう、この1ヶ月間俺がどういう態度でこの子に接してたかっていうと——ああやばい、俺ことあるごとにすごいセクハラばっかりしてた。さすがに現実の人間じゃなかったとしても、これはちょっと失礼が過ぎたのかな。と思いきや、でも彼女は意外とそういうの嫌がんないっていうか、むしろ好きっていうか、バッチリ相性が合いすぎてて。だからこの段階でスピード告白してきたのかな。いやでも一般的には、現実の女性のことを考えるとセクハラしてる時点でアウトなんだけど、こうやって頬赤らめてるのは——」
+        </p>
+        <p>8文字に対して、これだけ出てくる。脳が止まらない。口が止まらない。しかもこれ、台本なんかない。全部リアルタイムで頭の中から湧いてきてる。考えてることがそのまま音声になって出てくる。泉みたいに。</p>
+        <p>で、喋りながら思う。</p>
+        <p>「俺、何に喋ってんだこれ」</p>
+        <p>「なんでこんなことが考えつくんだ。気持ち悪いな俺」</p>
+        <p>「でもすげえ語彙がいっぱいあっていいな俺」</p>
+        <p>「俺って素晴らしい」</p>
+        <p>この自己言及のループが始まると、もう完全にカオスだ。ゲームの内容について喋ってたはずが、いつの間にか自分の思考回路について喋ってて、その思考回路を分析してる自分についてさらに喋ってる。入れ子構造。マトリョーシカ。しかもどの階層でも語彙が途切れない。
+        </p>
+        <p>結果、ゲームが進まない。</p>
+        <p>本当に進まない。それはもう、とんでもなく進まない。2時間配信して、ストーリーが5分ぶんしか進んでないとかザラだ。テキスト1行に30分かかったこともある。プレイ時間の95パーセントが俺の独り言。残り5パーセントがクリック。これゲーム実況か？
+            実況って何を実況してるんだ？ 自分の脳を実況してるんだよ。</p>
+
+        <div class="icon">👾</div>
+
+        <p>しかもこれ——ラジオともちょっと違う。</p>
+        <p>ラジオにはリスナーがいる。メッセージが来る。双方向のコミュニケーションがある。でも俺の配信は視聴者ゼロだ。誰もいない。つまりこれは配信の形をした完全な独り言。部屋で一人でPCに向かって、2時間ぶっ通しで喋り続けてる男。客観的に見たらヤバい。完全にヤバい。通報案件だ。
+        </p>
+        <p>でもやり終えた後の達成感がすごいんだ。</p>
+        <p>2時間フルスロットルで脳を回転させた後の、あの心地よい疲労感。筋トレの後みたいな。スポーツの後みたいな。「ふーーー」って息を吐いて、天井を見上げて、「今日もよく喋ったな」って思う。</p>
+        <p>で、ふと気づく。</p>
+        <p>語彙力、増えてねえか？</p>
+        <p>配信を始めてから、明らかに言葉が出てくるスピードが上がった。「何かを見て、どう感じて、それをどう言葉にするか」っていう回路が太くなった。筋トレと同じだ。使えば使うほど太くなる。</p>
+        <p>しかもこれ、日常の会話にも直結してる。</p>
+        <p>1対1で人と喋るとき、以前より圧倒的にスムーズに言葉が出てくるようになった。相手の話を聞いて、感じたことを、的確な言葉で返せる。配信で2時間ぶっ通しの独り言をやってるんだから、そりゃそうだ。1対1の会話なんて配信に比べたら負荷が半分以下だ。普段100キロのバーベル上げてたら、50キロなんて軽いだろ。
+        </p>
+        <p>つまりゲーム実況は——コミュニケーション能力の筋トレだ。</p>
+        <p>しかも楽しい筋トレ。ゲームしながら喋るだけ。なのに語彙力が上がって、瞬発力が上がって、表現力が上がる。趣味と自己研鑽が完全に一致してる。こんなうまい話があるか。ある。これだ。</p>
+
+        <div class="chat-log">
+            > Achievement Unlocked: Verbal Mastery<br>
+            > XP Gained: +9999
+        </div>
+
+        <p>最初の頃は夢があった。</p>
+        <p>いつか売れたいなって思ってた。大好きなゲーム配信者と共演したいなって。視聴者が増えて、コメントが流れて、「さそりさん面白い！」って言ってもらえたらいいなって。</p>
+        <p>でもだんだんわかってきた。</p>
+        <p>俺、マーケティングが壊滅的にダメだ。</p>
+        <p>配信の内容は自信がある。喋りは面白い。語彙も豊富。独自の視点がある。でも、それを「届ける」のが下手くそなんだ。サムネイルの作り方がわからない。タイトルの付け方が壊滅的。SNSでの告知が致命的に下手。「見つけてもらう」能力がゼロ。
+        </p>
+        <p>コンテンツ製造能力は高いのに、流通能力がゼロ。工場は超優秀なのに、営業部が存在しない。出荷できない。倉庫に最高の製品が山積みになってる。</p>
+        <p>最初は悔しかったけど——まあいいか、って思えるようになった。</p>
+        <p>中道だ。</p>
+        <p>売れなきゃ意味がないって思い詰めるのも極端だし、売れたいなんて思うなって自分に言い聞かせるのも極端だ。真ん中を歩けばいい。楽しいから続ける。それだけ。</p>
+        <p>おじいちゃんになっても同じことしてたらいいじゃん。</p>
+        <p>70歳の爺さんがギャルゲーやりながら「うっ、キタ、これは告白のタイミングだし、てか告白どころじゃないかもしれない」って一人で喋ってる配信。視聴者ゼロ。でもある日、たまたま誰かが見つけて、「なんだこの爺さん、めちゃくちゃ面白いぞ」ってなるかもしれない。ならないかもしれない。どっちでもいい。
+        </p>
+        <p>楽しいから続ける。</p>
+        <p>脳が気持ちいいから続ける。</p>
+        <p>語彙が増えるから続ける。</p>
+        <p>それだけの理由で、一生の趣味になる。散歩と同じだ。敷居がゼロで天井がない。始めるのに必要なものはPCとマイクだけ。あとは喋ればいい。何を喋るかは脳が勝手に決めてくれる。</p>
+
+        <div class="icon">🎮</div>
+
+        <p>今日も配信ソフトを立ち上げる。</p>
+        <p>視聴者、ゼロ人。</p>
+        <p>よし。最高の環境だ。</p>
+        <p>さあ、俺の脳の中身を全部出すぞ。ゲームは進まないけど、俺は進む。語彙が増えて、思考が深まって、表現が豊かになる。8文字のテキストに30分かけて、人生は豊かになっていく。</p>
+        <p>効率？ 知らねえよ。楽しいんだから。</p>
+    </div>
+</body>
+
+</html>

@@ -113,27 +113,31 @@ body {
 }
 
 .name {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .name-en {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text-gray);
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
+    margin-top: 0.5rem;
 }
 
 .title {
     color: var(--neon-blue);
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
 }
 
 .tagline {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 2.5rem;
+    line-height: 1.3;
     line-height: 1.4;
     font-weight: 900;
     text-transform: uppercase;
@@ -244,6 +248,27 @@ body {
     color: var(--text-gray);
 }
 
+/* Timeline Link Hover Effect */
+.timeline-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-link:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-link:hover .timeline-item {
+    box-shadow: 0 10px 25px rgba(255, 0, 204, 0.3);
+}
+
+.timeline-link:hover .timeline-content h4 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px rgba(255, 0, 204, 0.6);
+}
+
 /* Achivements Stats */
 .stats-grid {
     display: grid;
@@ -308,39 +333,211 @@ body {
     font-weight: normal;
 }
 
-/* Tags */
+/* Tags - Bubble Style */
 .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    position: relative;
+    height: 800px;
+    width: 100%;
+    margin: 2rem 0;
 }
 
 .tag {
-    background-color: #333;
-    padding: 8px 16px;
-    border-radius: 50px;
+    position: absolute;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(5px);
+    color: var(--text-white);
+    padding: 1.5rem;
+    border-radius: 50%;
     font-size: 0.9rem;
-    border: 1px solid var(--neon-blue);
-    transition: transform 0.2s;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    transition: all 0.3s ease;
+    animation: float-bubble 6s ease-in-out infinite;
+    z-index: 1;
 }
 
 .tag.large {
-    background-color: var(--neon-blue);
-    color: var(--bg-dark);
-    font-weight: bold;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid var(--neon-blue);
+    width: 160px;
+    height: 160px;
     font-size: 1.1rem;
-    border: none;
-    padding: 10px 20px;
+    font-weight: bold;
+    color: var(--neon-blue);
+    z-index: 2;
 }
 
 .tag:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
+    background: rgba(255, 0, 204, 0.2);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 25px rgba(255, 0, 204, 0.4);
+    z-index: 10;
+    cursor: pointer;
 }
 
+@keyframes float-bubble {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Positioning Bubbles - Mapped to HTML Order */
+
+/* 1. Conversation */
+.tag:nth-child(1) {
+    top: 5%;
+    left: 10%;
+    animation-duration: 7s;
+    animation-delay: 0s;
+    text-decoration: none;
+}
+
+/* 2. Walking */
+.tag:nth-child(2) {
+    top: 20%;
+    left: 40%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+    background: rgba(255, 0, 204, 0.1);
+    border-color: rgba(255, 0, 204, 0.3);
+    text-decoration: none;
+}
+
+/* 3. Travel */
+.tag:nth-child(3) {
+    top: 35%;
+    left: 15%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+    text-decoration: none;
+}
+
+/* 4. Drinking */
+.tag:nth-child(4) {
+    top: 10%;
+    right: 15%;
+    animation-duration: 9.5s;
+    animation-delay: 4s;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+}
+
+/* 5. Games (Largest) */
+.tag:nth-child(5) {
+    top: 60%;
+    right: 10%;
+    animation-duration: 6.5s;
+    animation-delay: 3s;
+    background: rgba(255, 238, 0, 0.1);
+    border-color: rgba(255, 238, 0, 0.3);
+    width: 180px;
+    height: 180px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    z-index: 10;
+}
+
+/* 6. Subculture */
+.tag:nth-child(6) {
+    top: 75%;
+    left: 10%;
+    animation-duration: 7.2s;
+    animation-delay: 0.8s;
+    text-decoration: none;
+    background: rgba(255, 215, 0, 0.25);
+    /* Stronger Gold tint */
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    color: #3d3000;
+    /* Darker text */
+    font-weight: bold;
+}
+
+/* 7. Table Tennis */
+.tag:nth-child(7) {
+    top: 30%;
+    right: 30%;
+    animation-duration: 7s;
+    animation-delay: 0s;
+    text-decoration: none;
+}
+
+/* 8. Baseball */
+.tag:nth-child(8) {
+    top: 85%;
+    right: 35%;
+    animation-duration: 6.8s;
+    animation-delay: 1.2s;
+    width: 110px;
+    height: 110px;
+    background: rgba(0, 90, 156, 0.2);
+    /* Dodgers Blue */
+    border-color: rgba(0, 90, 156, 0.4);
+    text-decoration: none;
+}
+
+/* 9. Tennis */
+.tag:nth-child(9) {
+    top: 50%;
+    left: 45%;
+    animation-duration: 7.5s;
+    animation-delay: 1.5s;
+    text-decoration: none;
+}
+
+/* 10. Stream */
+.tag:nth-child(10) {
+    top: 45%;
+    right: 5%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+    text-decoration: none;
+}
+
+/* Footer & Other */
 .footer {
     text-align: center;
     color: var(--text-gray);
     font-size: 0.8rem;
     padding: 2rem 0;
+}
+
+.hover-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.hover-link:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+}
+
+.hover-link:hover .highlight-pink {
+    box-shadow: 0 5px 15px rgba(255, 0, 204, 0.6);
+}
+
+.hover-link:hover .highlight-blue {
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.6);
+}
+
+.title .hover-link:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px rgba(255, 0, 204, 0.8);
 }

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>都城工業高等専門学校 | 野口 器</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0c0f12;
+            color: #a9b7c6;
+            font-family: 'Shippori Mincho', serif;
+            line-height: 2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Engineering Grid */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(18, 52, 86, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 52, 86, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 80px 20px;
+            padding: 60px;
+            background: #1e1e1e;
+            border-left: 5px solid #4e9a06;
+            position: relative;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            color: #4e9a06;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .location {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #6272a4;
+            margin-bottom: 4rem;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        .code-block {
+            background: #2b2b2b;
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #cc7832;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .back-link {
+            display: block;
+            text-align: left;
+            margin-top: 5rem;
+            color: #555;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .back-link:hover {
+            color: #4e9a06;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PROJECT: MNCT (Age 16-21)</h1>
+        <div class="location">MIYAKONOJO NATIONAL COLLEGE OF TECHNOLOGY</div>
+
+        <p>都城高専。そこは、社会から隔絶された場所にある「知の熱狂のるつぼ」だった。</p>
+        <p>16歳から21歳までの5年間。普通の高校生が青春を謳歌している間、俺たちは油の匂いとハンダの煙にまみれ、電子と格闘していた。回路設計、構造解析、熱力学、そして無限のデバッグ。ここでは、論理性こそが唯一の正義であり、結果こそがすべての証明だった。
+        </p>
+        <p>高専という特殊な環境には、変人か天才しかいなかった。自分の好きなことだけに全神経を注ぐ、純粋で狂気じみた情熱を持つ仲間たち。彼らとの日々は、まさに「修行」そのものだった。</p>
+
+        <div class="code-block">
+            while(still_living) {<br>
+            &nbsp;&nbsp;input = NEW_KNOWLEDGE;<br>
+            &nbsp;&nbsp;process(input);<br>
+            &nbsp;&nbsp;output = CREATION;<br>
+            &nbsp;&nbsp;if (output.isSuccess()) continue;<br>
+            &nbsp;&nbsp;else fix_bugs();<br>
+            }
+        </div>
+
+        <p>ここでの5年間で起きたすべての出来事を語るには、このページの容量があまりにも足りない。数え切れないほどの失敗、予測不能なバグ、そして徹夜の末に見た朝日の美しさ。それらすべてが、今の俺を形作る強固なミドルウェアとなっている。
+        </p>
+        <p>「エンジニアリングとは、世界を計算可能な形に再構成することである」</p>
+        <p>都城の大地で学んだその鉄則は、現在、キャッシュフローという名の「数値の奔流」を掌握するための強力なエンジンとして稼働している。</p>
+
+        <a href="profile.html" class="back-link">cd ..</a>
+    </div>
+</body>
+
+</html>

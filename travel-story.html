@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行バカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* Infinite Universe to Bright Hope Gradient */
+            background: linear-gradient(180deg, #090919 0%, #1e1e4a 30%, #4a1e4a 60%, #ff9a9e 100%);
+            background-attachment: fixed;
+            color: #fff;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            line-height: 2.0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+        }
+
+        /* Star Field */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: var(--opacity);
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        /* Shooting Star */
+        .shooting-star {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+            animation: shoot 5s linear infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+            right: 0;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: rotate(-45deg) translateX(0);
+                opacity: 1;
+            }
+
+            5% {
+                transform: rotate(-45deg) translateX(-500px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotate(-45deg) translateX(-500px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 60px 20px;
+            padding: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, #b1f1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #e0e0ff;
+            margin-bottom: 4rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #aaa;
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .scene-break {
+            text-align: center;
+            margin: 4rem 0;
+            font-size: 2rem;
+            color: #b1f1ff;
+            opacity: 0.8;
+            animation: spin 60s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Floating Icons */
+        .icon-float {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: float-icon 10s ease-in-out infinite;
+            color: #fff;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes float-icon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="shooting-star"></div>
+
+    <!-- Floating Background Icons -->
+    <div class="icon-float" style="top: 10%; left: 5%; animation-delay: 0s;">✈️</div>
+    <div class="icon-float" style="top: 20%; right: 10%; animation-delay: 2s;">🍺</div>
+    <div class="icon-float" style="bottom: 15%; left: 8%; animation-delay: 4s;">🏨</div>
+    <div class="icon-float" style="bottom: 30%; right: 5%; animation-delay: 1s;">🚆</div>
+    <div class="icon-float" style="top: 50%; left: -20px; animation-delay: 3s;">🌏</div>
+
+    <div class="container">
+        <h1>TRAVEL CRAZY</h1>
+        <div class="subtitle">旅行バカ、あるいは無限に生きたい男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p>死にたくない。</p>
+        <p>いきなり重いけど、聞いてくれ。これ、ネガティブな話じゃない。真逆だ。楽しすぎて死にたくないって話だ。</p>
+        <p>できるなら無限に生きていたい。80年？ 足りない。100年？ 足りない。1000年？
+            まだ足りない。地球が崩壊したら火星に行く。火星がダメなら木星の衛星でもどこでもいい。太陽が燃え尽きたら別の恒星系に移住する。銀河が消滅したら隣の銀河に飛ぶ。宇宙が終わる？
+            終わらせねえよ。それでも終わるっていうなら——俺が新しい宇宙になる。俺の中にある好奇心と楽しさが爆発して、ビッグバンが起きて、新しい宇宙が生まれる。そこにまた星があって、海があって、3,000円の宿があって、300円のビールがある。
+        </p>
+        <p>頭おかしいって思うだろ。わかる。でも本心だ。初めて言った。</p>
+        <p>今まで散歩の話をして、会話の話をして、酒の話をして、配信の話をして、卓球の話をして。全部最高だって言った。全部嘘じゃない。でもさ、一つ一つの趣味にかけてる時間、まだ100万分の1くらいなんだよ。日本国内だけでも行ってない場所がいくらでもあるし、歩いてない道がいくらでもあるし、喋ってない人がいくらでもいる。
+        </p>
+        <p>足りない。人生の時間が、絶望的に足りない。</p>
+        <p>だから——<span class="highlight">1秒も無駄にしたくない。</span></p>
+
+        <div class="scene-break">✨</div>
+
+        <p>さて、旅行の話をしよう。</p>
+        <p>仕事中。昼休み。コンビニのおにぎりを食いながら、ふと思う。</p>
+        <p>「あー、今日の夜、山梨行くか」</p>
+        <p>これだけ。これが旅行の始まり。計画なんか立てない。ガイドブックも開かない。下調べもしない。「行くか」。以上。</p>
+        <p>スマホを取り出す。中央線の特急を調べる。退勤後に乗れるやつ——ある。22時半に着く。完璧。次にアゴダを開く。22時半チェックイン可能で評価の高い宿を探す。</p>
+        <p>3,000円。</p>
+        <p>ネカフェより安い。</p>
+        <p>えっ。3,000円？ これ1泊の値段？ 打ち間違いじゃなくて？ 写真を見る。綺麗だ。口コミを見る。高評価。「清潔でした」「駅近で便利」「スタッフが親切」。3,000円で。日本ってすげえな。旅行大国ってこういうことか。
+        </p>
+        <p>予約。完了。</p>
+        <p>この瞬間からもう、残りの労働時間が黄金に変わる。</p>
+        <p>あと5時間。5時間働けば山梨だ。知らない土地だ。知らない宿だ。知らない飯だ。全部知らない。全部これから出会う。</p>
+        <p>「ああ、もう絶対楽しい。もう最高」</p>
+        <p>心の中でずっとこれが流れてる。BGMみたいに。仕事しながら、頭の半分は旅行のことを考えてる。もう半分でちゃんと仕事してる。人間の脳ってすごい。並列処理ができる。</p>
+
+        <div class="scene-break">🚆</div>
+
+        <p>グリーン車に乗る。</p>
+        <p>ここからがまた楽しい。一人。充電器持ってる。iPadとiPhoneとワイヤレスイヤホン。完璧な装備。</p>
+        <p>「何しよっかな」</p>
+        <p>選択肢が多すぎて頭がバグる。クロードコードで知識集める？ YouTubeにダウンロードしてある動画見る？ ネットの裏ハックとか政治系のやつ？ テニスの試合のためてたやつ？ それとも何もしないで車窓を眺める？</p>
+        <p>「やばいやばいやばい、どうしようどうしよう」</p>
+        <p>このパニック、最高に楽しい。「楽しいことが多すぎてどれからやるか決められない」っていうパニック。世界で一番幸せなパニック。結局あれもこれも手を出して、全部中途半端に楽しんで、気づいたら到着のアナウンスが流れてる。
+        </p>
+        <p>22時半。山梨。</p>
+        <p>改札を出る。空気が違う。さっきまで東京のコンクリートの匂いだったのが、山の匂いに変わってる。気温もちょっと低い。風の質感が違う。肌で「場所が変わった」ってわかる。</p>
+        <p>宿に着く。</p>
+        <p>3,000円。</p>
+        <p>えっ。これが3,000円。嘘でしょ。普通にいい部屋じゃん。ベッドあるし、Wi-Fiあるし、バスタオルあるし。何なら景色も悪くない。3,000円って。この国の宿泊業界、大丈夫か？ ちゃんと黒字出てるか？
+            俺は嬉しいけど心配になるぞ。</p>
+        <p>荷物を置く。23時。まだ夜はこれからだ。</p>
+
+        <div class="scene-break">🍺</div>
+
+        <p>近くの飯屋を検索する。</p>
+        <p>中華料理屋。評価4.6。口コミ500件超え。</p>
+        <p>勝利。</p>
+        <p>歩いて5分。暖簾をくぐる。カウンターに座る。メニューを開く。</p>
+        <p>ビール、300円。</p>
+        <p>つぶ貝のなんとか炒め、400円。</p>
+        <p>待って。これ客単価いくらになるの。2,200円？ せいぜい3,000円？
+            いやいやいや、大丈夫ですか。利益率どうなってるの。原価計算したの。俺ならこの味に2万3万出すよ。いやマジで。経営者目線で心配になるレベルの安さだ。</p>
+        <p>でもうまい。ビールが冷えてて、炒め物がアツアツで、知らない土地の知らない店で一人で飯食ってる。この幸福感は何だ。5,000円も使ってないのに、なんで俺はこんなに満たされてるんだ。</p>
+        <p>ここまでの流れを振り返ってくれ。</p>
+        <p>昼休みに「行くか」って思ってから、まだ半日も経ってない。仕事して、電車乗って、宿に着いて、飯食って。それだけ。何も特別なことしてない。なのに1秒たりともつまんない時間がなかった。文字通り、1秒もない。</p>
+        <p>昼休みに「行くか」の瞬間からワクワクして。残りの仕事中ずっとワクワクして。グリーン車でワクワクして。到着してワクワクして。宿の安さに驚いて。飯のうまさに感動して。</p>
+        <p>全部楽しい。全部面白い。</p>
+        <p>で、これ、山梨が特別なわけじゃない。どこ行ってもこうなる。</p>
+        <p>神奈川でも、静岡でも、千葉でも、栃木でも。日本中どこに行っても、知らない空気があって、知らない飯があって、知らない人がいる。3,000円の宿と300円のビールが待ってる。</p>
+
+        <div class="scene-break">🌏</div>
+
+        <p>しかも——同じ場所に行っても楽しい。</p>
+        <p>関東圏内だけでも、同じ場所に何十回と行ってる。30回、40回。でも飽きない。なぜかっていうと、毎回違うから。今回は夜遊んでみよう。今回は違う視点で歩いてみよう。今回は友達連れて行ってみよう。今回は一人で黙って歩いてみよう。
+        </p>
+        <p>同じ場所なのに、自分の状態が違えば全部違う体験になる。季節が変われば景色が変わる。天気が変われば空気が変わる。一緒にいる人が変われば会話が変わる。一人で行けば内省の旅になる。</p>
+        <p>無限だ。旅行も無限。散歩と同じ。敷居がゼロで天井がない。</p>
+        <p>散歩と旅行はかなり連結してる趣味だと思う。散歩は「日常の延長で知らない景色に出会う」行為で、旅行は「日常を飛び出して知らない景色に出会う」行為。やってることの本質は同じだ。歩いて、見て、感じて、考える。ただスケールが違うだけ。
+        </p>
+        <p>次の日は朝から動く。</p>
+        <p>休みだから12時間まるまる使える。知らない土地で12時間。何をするかは決めてない。決めないのがいい。歩き出したら足が勝手に連れてってくれる。曲がり角で右に行くか左に行くか、その場の気分で決める。その結果出会うものが全部「予想外」で、予想外こそが旅行の醍醐味だ。
+        </p>
+        <p>バーがある。入る。居酒屋がある。入る。神社がある。参る。川がある。眺める。地元のおばちゃんに話しかけられる。30分喋る。全部楽しい。</p>
+
+        <div class="scene-break">🪐</div>
+
+        <p>いつか大金持ちになったらさ。</p>
+        <p>夢がある。</p>
+        <p>賃貸を解約する。家を持たない。必要最低限の荷物だけ。iPadとiPhone。それだけ。服は黒と白のシンプルなTシャツとズボン。レンタル服屋も使う。とにかく身軽にする。</p>
+        <p>で、毎日違うホテルに泊まる。</p>
+        <p>日本全国。今日は福岡。明日は仙台。明後日は金沢。その次は那覇。毎日知らない街で起きて、知らない道を歩いて、知らない店で飯を食う。一生それをやる。</p>
+        <p>できるか？
+            金さえあればできる。日本は旅行大国だ。3,000円で泊まれる宿がいくらでもある。300円のビールを出す店がいくらでもある。新幹線も特急もある。鈍行でゆっくり行ってもいい。どこに行っても安全で、清潔で、飯がうまい。この国で旅行しない理由がない。
+        </p>
+        <p>でも時間が足りない。</p>
+        <p>47都道府県。市区町村は1,700以上。一つの街に1泊したとして、全部回るのに5年。でも1泊じゃ足りない。最低3泊はしたい。そうすると15年。しかも同じ場所に何回も行きたい。季節ごとに行きたい。30回行っても飽きないんだから。
+        </p>
+        <p>計算すればするほど、人生が足りない。</p>
+        <p>結局、全部同じところに辿り着く。</p>
+        <p>散歩もそうだった。会話もそうだった。卓球も、配信も、酒も。全部「もっとやりたい」「時間が足りない」「人生が足りない」に辿り着く。</p>
+        <p>だから俺は——今日も旅行する。</p>
+        <p>明日の休みに、どこに行くか。まだ決めてない。昼休みに決める。退勤後の電車を調べて、アゴダで宿を取って、グリーン車に飛び乗る。3,000円の宿と300円のビールが待ってる。</p>
+        <p>1秒もつまんない時間のない、最高の夜が待ってる。</p>
+        <p>人生の時間は足りない。でも足りないからこそ、1秒も無駄にしたくない。</p>
+        <p>宇宙が終わるその日まで。</p>
+        <p>いや——宇宙が終わっても。<span class="highlight">俺の好奇心が爆発して新しい宇宙が始まるから。</span>そこにもきっと、知らない星と、知らない道と、知らない誰かがいる。</p>
+        <p>今日も行くか。</p>
+    </div>
+
+    <script>
+        // Star Generation
+        const starsContainer = document.getElementById('stars');
+        const starCount = 100;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            const size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+
+            // Random styling variables for animation
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            star.style.setProperty('--opacity', Math.random() * 0.7 + 0.3);
+
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+
+</html>

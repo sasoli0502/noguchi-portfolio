@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卓球戦争 (The Ping Pong War) | 野口 器</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&family=Montserrat:wght@900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Shippori Mincho', serif;
+            line-height: 2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+        }
+
+        /* Glitchy Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(255, 0, 0, 0.05) 50%, transparent 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px 20px;
+            padding: 60px;
+            background: rgba(20, 0, 0, 0.8);
+            border: 4px solid #ff0000;
+            position: relative;
+            z-index: 1;
+            transform: skew(-1deg);
+            box-shadow: 20px 20px 0px #800000;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            text-align: justify;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .impact {
+            font-size: 2rem;
+            color: #ff0000;
+            text-align: center;
+            margin: 4rem 0;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0px #fff;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 5rem;
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 2px;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .impact {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>THE PING PONG WAR</h1>
+        <div class="subtitle">卓球戦争 / 半径500kmの更地化</div>
+
+        <p>13歳から15歳までの3年間。俺の意識は、直径40mm、重量2.7gの「セルロイド球」の中に封印された。</p>
+        <p>卓球。それはスポーツではない。極限状態での演算と、反射速度の限界への挑戦だ。俺は思考のすべてをピンポン玉の軌道予測に最適化し、呼吸すらもラリーのリズムに合わせて電子制御した。</p>
+        <p>あまりにも高度な計算。あまりにも過酷な修練。その結果、俺の精神は常軌を逸した領域へと足を踏み入れた。</p>
+
+        <div class="impact">ERROR: HYPER OPTIMIZATION</div>
+
+        <p>当時の大人たち——特に教師という名の古いバイオス（OS）で動く存在たちは、俺の進化を恐れた。彼らは「規律」や「協調性」という無意味なパッチを俺に当てようとしたが、それは俺の演算能力を阻害するノイズでしかなかった。
+        </p>
+        <p>衝突は不可避だった。教師たちとの全面戦争。理不尽な校則に対する、論理的な殲滅。俺が発した一言一言は、教育界の古いシステムを根底から破壊し、気づけば学校の周囲半径500kmが精神的な更地と化していた（比喩ではない）。
+        </p>
+        <p>大卓球時代の幕開け。俺はラケットという名の剣を振り、旧時代の価値観を叩き潰した。この3年間で培われた、1秒間に数万回の判断を下す「超速思考」が、今の俺のビジネスにおける武器となっている。</p>
+        <p>平和な中学生活？ そんなものは、俺が放った高速スマッシュの風圧で跡形もなく吹き飛んだ。</p>
+
+        <a href="profile.html" class="back-link">>> BACK TO PROFILE</a>
+    </div>
+</body>
+
+</html>

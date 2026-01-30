@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野球バカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@700;900&family=Yantramanav:wght@900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Noto Serif JP', serif;
+            line-height: 2.0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+            /* Pinstripe Background (White/Subtle Grey) */
+            background-image: repeating-linear-gradient(90deg, #f8f8f8, #f8f8f8 29px, #ddd 30px);
+        }
+
+        /* Dirt and Grass Texture at bottom fixed? No, let's keep it simple pinstripe + elements */
+
+        .seam-decoration {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 5%;
+            width: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='40' viewBox='0 0 20 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 C 18 10, 18 30, 10 40' stroke='%23ff0000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+            background-size: 20px 40px;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .seam-decoration.right {
+            left: auto;
+            right: 5%;
+            transform: scaleX(-1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px 40px;
+            padding: 60px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            border-top: 10px solid #ba0021;
+            /* Angels/Japan Red */
+            border-bottom: 10px solid #005a9c;
+            /* Dodgers Blue */
+        }
+
+        h1 {
+            font-family: 'Dela Gothic One', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            /* Ohtani Colors Gradient */
+            background: linear-gradient(135deg, #ba0021 50%, #005a9c 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 4rem;
+            font-weight: 900;
+            border-bottom: 3px solid #ba0021;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #888;
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .highlight-red {
+            color: #ba0021;
+            font-size: 1.3em;
+            font-family: 'Dela Gothic One', cursive;
+        }
+
+        .highlight-blue {
+            color: #005a9c;
+            font-weight: 900;
+        }
+
+        .scene-break {
+            text-align: center;
+            margin: 4rem 0;
+            font-size: 2.5rem;
+            color: #ba0021;
+        }
+
+        /* Number 17 Decoration */
+        .number-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Yantramanav', sans-serif;
+            font-size: 30vw;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 0;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        /* Scoreboard Style Box */
+        .scoreboard {
+            background-color: #084024;
+            /* Green Board */
+            color: #ffcc00;
+            /* Yellow LED */
+            font-family: 'Dela Gothic One', cursive;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 4px solid #fff;
+            box-shadow: 5px 5px 0 #333;
+            text-align: center;
+        }
+
+        .scoreboard span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .scoreboard .score {
+            font-size: 3rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .seam-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="seam-decoration"></div>
+    <div class="seam-decoration right"></div>
+    <div class="number-bg">17</div>
+
+    <div class="container">
+        <h1>BASEBALL CRAZY</h1>
+        <div class="subtitle">野球バカ、あるいは野球宇宙神を愛する男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p><span class="highlight-red">大谷翔平</span>をこの世で一番愛してるのは俺だ。</p>
+        <p>いきなり宣言したけど、本心だ。異論は認めない。お前がどれだけ大谷のファンでも、俺の方が愛してる。根拠はこれから全部話す。</p>
+        <p>野球にハマったのは2015年くらいからだ。</p>
+        <p>最初はミーハーだった。正直に言う。きっかけはイチロー。イチローの変態ヒット集っていう動画を見た。あの、物理法則を無視したバッティング。ボール球を打ってヒットにする。内角をこすってレフト前に落とす。外角を流して右中間を破る。意味がわからない。人間の動体視力と反射神経でここまでできるのかって思った。
+        </p>
+        <p>で、イチローにハマった後に日本のプロ野球を見始めた。</p>
+        <p>そしたら柳田悠岐だ。</p>
+        <p>ソフトバンクホークス。2015年。トリプルスリー。打率3割、30本塁打、30盗塁。これを同じ年に全部達成するっていう、とんでもない記録。柳田のバッティングはイチローとは全然違って、もっと暴力的。フルスイングでボールを粉砕する。あのスイングを見たとき「やっべえ、日本の野球すげえ」って素直に思った。
+        </p>
+        <p>同じ年にヤクルトの山田哲人もトリプルスリーを達成してた。すげえなーって。</p>
+        <p>やっぱ野球って日本人に根差してるスポーツだ。見てると伝わりやすい。ルールも難しいなりに面白いルールがいっぱいあって、「なるほど、そういう仕組みなのか」って理解が深まるたびにどんどん面白くなる。</p>
+
+        <div class="scene-break">⚾</div>
+
+        <p>で——2015年。野球にハマりたてのこの年に、俺は運命に出会った。</p>
+        <p><span class="highlight-red">大谷翔平。</span></p>
+        <p>当時は日本ハムファイターズに所属してた。2012年にドラフトで入ってきて、1年目からバリバリ一軍でバッティングもピッチングも経験してた。二刀流。投げて打てる男。触れ込みとしては聞いてた。</p>
+        <p>2013年は普通。2014年はバッティングがまあまあ良くて、ピッチングもそこそこ良い。順調に成長してるな、くらいの印象。</p>
+        <p>2015年。ピッチングで覚醒した。三冠王とか取ったんだ。でもバッティングは冷え冷え。まあ二刀流の触れ込みで入ってきたけど、だから俺も2015年から野球にハマった。日本プロ野球も含めて。まあ全然注目してなくて、ピッチングですごい人なんて各リーグにいる。セ・リーグだと菅野とかもいたし。だから大谷も「ピッチングがすごい人」の一人だろうと。
+        </p>
+        <p>全然注目してなかった。</p>
+        <p>2016年。</p>
+        <p>この年に、すべてが変わった。</p>
+        <p>大谷翔平が本格的にバケた。ピッチングでは防御率1点台。ちゃんと1年間ローテーションを回って、20何試合投げて10勝。これだけでもエース級だ。</p>
+        <p>でも——バッティングがなんか違うんだよ。生き物として違う。</p>
+        <p>ソフトバンク戦で先頭打者初球ホームランを打った。初球。先頭打者。ホームラン。普通のバッターが一生に一回あるかないかのシーンを、さらっとやる。</p>
+        <p>打席数は100試合分くらいしかないのに、22本のホームランを打ってた。フルシーズン出たら30本は打つだろっていうペース。打率も3割。</p>
+        <p>日本ハムの当時の主砲は中田翔だ。中田翔、ヒヤヒヤだっただろうな。「こいつ、俺より試合出てないのに、俺に近い数字打ってやがる」って。背中に冷や汗かいてたと思う。</p>
+        <p>しかもこれに——防御率1点台のピッチングがついてくる。</p>
+        <p>2015年の柳田のトリプルスリーと同じくらいのインパクトが、バッティングだけでもある。そこに防御率1点台のピッチャーがセットでついてくる。同一人物で。意味がわからない。</p>
+        <p>その年、日本ハムは全てが噛み合って優勝した。日本シリーズも優勝した。</p>
+        <p>大谷のすごいところは、日本シリーズでも大活躍するところだ。広島相手にサヨナラヒットを打ったり、最終戦——だったか忘れたけど、抑えで出てきて165キロを投げたり。</p>
+
+        <div class="scoreboard">
+            <span>SPEED GUN</span>
+            <div class="score">165 km/h</div>
+        </div>
+
+        <p>165キロ。日本シリーズで。抑えで。</p>
+        <p>大谷翔平はまさに主人公だった。漫画の主人公。いや、漫画の主人公ですらここまでやったら「盛りすぎだろ」って言われる。でも現実。現実にこれをやってる男がいる。</p>
+        <p>2017年は結構序盤で怪我をして、50〜60試合くらい出てそこそこ活躍してたけど、ファンからすると「ああ、もうメジャーに行く前の休養期間なのかな」っていう感じで見てた。</p>
+
+        <div class="scene-break">🇺🇸</div>
+
+        <p>そして——いざメジャーへ。</p>
+        <p>2018年。渡米。ロサンゼルス・エンゼルス。</p>
+        <p>新人王を取った。</p>
+        <p>まず新人王。当然っちゃ当然だ。日本であれだけやった男がメジャーに行って、新人王を取れない方がおかしい。2018年、2019年はそこそこ活躍した。俺は2016年からのガチファンだから、「まあまあ、このくらいはやるっしょ大谷は」って思ってた。余裕の構え。
+        </p>
+        <p>そしたら2020年。コロナ禍の年。</p>
+        <p>終わってた。</p>
+        <p>ダメな方で終わってた。ピッチングで防御率20とかだったか。打撃も2割ちょっと。ボロボロ。マジでボロボロ。</p>
+        <p>正直に言う。あの年、ちょっとだけ不安になった。イチローがそれまで大好きで、イチローこそが日本野球界の野手の頂点なのかなって思ってた。大谷もすごいけど、メジャーの壁は厚いのかなって。ほんのちょっとだけ、そう思った。
+        </p>
+        <p>——その後は皆さん知る通りだ。</p>
+        <p>野球の歴史になった。</p>
+        <p>大谷翔平は、野球の歴史そのものになった。</p>
+        <p>2021年以降の大谷翔平が何をしたかは、もう語る必要がないだろう。語ったら20巻書ける。ゲームの話と同じだ。終わらない。</p>
+
+        <div class="scene-break">🚀</div>
+
+        <p>一つだけ言う。</p>
+        <p>10年くらい野球を見てきて、自信を持って断言する。<span
+                class="highlight-red">大谷翔平に追いつくことは、誰にもできない。</span>少なくとも俺が生きている間は、誰にも追いつけない。絶対に。</p>
+        <p>今年31歳になる。</p>
+        <p>普通、31歳の選手っていうのは「どの歴代レジェンドの記録に追いつけるかな」っていう段階だ。目標がある。超えるべき先人がいる。ベーブ・ルースとか、ハンク・アーロンとか、そういう歴史上の巨人の背中を追いかける段階。</p>
+        <p>大谷翔平は違う。</p>
+        <p>大谷翔平はもう、これからどれだけ歴代最高のレジェンドとして後輩たちに対して記録を突き放していくか——っていう段階に入ってる。追いかける側じゃない。突き放す側だ。31歳で。まだ全盛期が続いてる31歳で。</p>
+        <p><span class="highlight-blue">野球宇宙神。</span></p>
+        <p>俺はそう呼んでる。大谷翔平は野球宇宙神だ。もし宇宙から野球星人が攻めてきたら——いや、その野球宇宙神が大谷翔平なんだよ。地球側の切り札じゃなくて、宇宙側のボスが地球にいるっていう。味方にいるのが意味がわからない。
+        </p>
+        <p>理論的に、大谷の突出度合いは説明できる。数字で。でもその数字を測る指標すら、大谷に対応してないんだ。</p>
+        <p>野球にはいろんな指標がある。WAR、OPS、ERA、FIP——全部、野手か投手のどちらか片方をやってる人用の指標だ。両方をハイレベルにやってる人間用の統一指標なんて、用意されてない。なぜか。そんな人間が存在しなかったからだ。大谷翔平が現れるまで。
+        </p>
+        <p>初心者のファンに伝えたいのはこれだ。大谷翔平の本当のすごさは、既存の指標で測れないところにある。測定器の目盛りが足りないんだ。身長を測るメジャーに「3メートル」の目盛りがないみたいな話。だって今まで3メートルの人間なんていなかったんだから。
+        </p>
+        <p>大谷翔平は、神だ。野球の歴史であり、野球の神だ。</p>
+        <p>テニスにはジョコビッチがいる。野球には大谷翔平がいる。どっちも俺の人生を彩ってくれてる。どっちも同じ時代に生まれてリアルタイムで見れてる。それだけで俺は幸せだ。</p>
+        <p>でも性質は違う。</p>
+        <p>ジョコビッチには「いつか引退する切なさ」がある。39歳の体がいつまでもつか、毎試合ヒヤヒヤしてる。だから一試合一試合が宝物だ。</p>
+        <p>大谷翔平には——まだそれがない。31歳。まだ全盛期のど真ん中。まだこれから何年も、とんでもない記録を積み上げていく。その過程をリアルタイムで見れる。歴史が作られていく瞬間に、毎日立ち会える。</p>
+        <p>こんな贅沢な時代に生きてることが、ありがたすぎて震える。</p>
+        <p>大谷翔平をこの世で一番愛してるのは俺だ。</p>
+        <p>もう一回言う。異論は認めない。</p>
+    </div>
+</body>
+
+</html>

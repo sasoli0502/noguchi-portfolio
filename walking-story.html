@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>散歩バカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Yusei+Magic&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(160deg, #00c6ff 0%, #0072ff 100%);
+            background-attachment: fixed;
+            color: #333;
+            font-family: 'Kaisei Decol', serif;
+            line-height: 2.0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+        }
+
+        /* Sparkle Animation Container */
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite ease-in-out;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Sun Flare */
+        .sun-flare {
+            position: fixed;
+            top: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 200, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0.8;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px 20px;
+            padding: 60px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 50, 200, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Yusei Magic', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #0072ff;
+            margin-bottom: 3rem;
+            font-weight: bold;
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #666;
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(to bottom, transparent 60%, #89f6ff 60%);
+            font-weight: bold;
+        }
+
+        .scene-break {
+            text-align: center;
+            margin: 4rem 0;
+            color: #00c6ff;
+            font-size: 1.8rem;
+        }
+
+        /* Icons */
+        .icon-box {
+            text-align: center;
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: #0072ff;
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sun-flare"></div>
+    <div class="sparkles" id="sparkles"></div>
+
+    <div class="container">
+        <h1>WALKING CRAZY</h1>
+        <div class="subtitle">散歩バカ、あるいは歩くだけで脳がバグる男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p>人生で一番コスパのいい趣味を教えてやる。</p>
+        <p>散歩だ。</p>
+        <p>「いや散歩て」って思っただろ。わかる。わかるけど黙って聞け。お前の人生観が変わるから。変わらなかったら俺と一緒に歩け。歩いたら変わるから。</p>
+        <p>俺のホームグラウンドは東京の湾岸エリアだ。</p>
+        <p>秋葉原を出発する。電気街のごちゃごちゃした看板を横目に歩き始めて、南に向かう。人混みを抜けて、蔵前を通って、隅田川を渡って。足の向くまま勝どき、築地、晴海。そのまま行けば豊洲、有明、お台場。</p>
+
+        <div class="icon-box">☀️</div>
+
+        <p>ここからがヤバい。</p>
+        <p>晴海の海沿いに出た瞬間、視界がバグる。</p>
+        <p>太平洋だ。</p>
+        <p>正確には東京湾だけど、あの水平線を見たら「太平洋だ」って思うんだよ。遮るものが何もない。空がバカみたいに広くて、海がバカみたいに光ってて、振り返ったらタワーマンションがニョキニョキ生えてる。</p>
+        <p>「東京、すげえな」</p>
+        <p>思わず声に出る。何回歩いても出る。飽きない。この埋立地エリアのガチ都会っぷりは何回見ても意味がわからない。人間が海を埋めてビルを建てたっていう事実が、歩くたびに狂気に思える。すごいよ人類。</p>
+        <p>昼もすごいけど、夜はもっとすごい。</p>
+        <p>ギラギラだ。もう全部ギラギラ。レインボーブリッジがギラギラ。対岸のビル群がギラギラ。水面に映った光がギラギラ。空を見上げたら星は見えないけど、その代わり人間が作った光が星の代わりをしてる。これはこれで美しい。自然に負けてない。むしろ張り合ってる。
+        </p>
+        <p>快晴の昼間はもっとヤバい。</p>
+        <p>ふっと上を見る。空。青い。雲がない日は本当に何もない。透明な青がどこまでも続いてて、「ああ、この上に宇宙があるんだよな」って思うとゾクッとする。ちょっと視線を下げる。高層ビル群。ガラス張りの壁面に空が映ってて、ビルが空を着てるみたいに見える。もうちょっと視線を下げる。レインボーブリッジ。その向こうに海。海の上を船が通ってる。
+        </p>
+        <p>一瞬で3回ゾクゾクする。上、中、下。たった一回視線を動かすだけで、3段階の快感。これが無料。タダ。0円。秋葉原から歩いてきてるから交通費すらかかってない。自分の足だけ。意味がわからない。</p>
+
+        <div class="scene-break">✨</div>
+
+        <p>歩きながら考えることが無限にある。</p>
+        <p>謎のビルを見つける。「これ何のビル？ どういう用途？
+            誰が入ってんの？」って考えてるだけで5分潰れる。歩いてる人を見る。平日の昼間にこの湾岸エリアを散歩してる人間って何者なんだ。俺はシフト制の休みだから平日に歩いてるけど、あの人は？ バカ金持ちでFIREした人？
+            フリーランス？ 夜勤明け？ 不労所得で生きてる天才？ 考え出したら止まらない。</p>
+        <p>最近はAIエージェントに話しかけながら歩いてる。</p>
+        <p>イヤホンつけて、音声入力で質問する。「アメリカの州で、他の州と際立って違う特徴を持ってるのってどこ？」とか。「江戸時代の埋立地の歴史教えて」とか。歩きながら知識が増える。景色を見ながら世界が広がる。足を動かしながら脳みそがフル回転する。これを同時にやれるのが散歩の恐ろしいところだ。
+        </p>
+        <p>脳がビリビリする。</p>
+        <p>比喩じゃなくて、マジでビリビリする。歩いて、見て、考えて、話して。全部の感覚が同時に動いてるときの、あの高揚感。生きてるって最高すぎる。気持ちいい。ゾクゾクする。もう一回言う。これが無料。</p>
+        <p>で、ふと思う。</p>
+        <p>これ、東京の1区域だけでこうなるんだぜ。</p>
+        <p>たかが勝どきから有明までの、直線距離にしたら数キロの散歩で、脳がこんなにバグるんだ。じゃあ世界には何が待ってるんだ。日本だけでも、まだ歩いてない場所が何万とある。人生って時間足りねえ。絶対に足りねえ。楽しすぎて頭おかしくなっちゃうよ。
+        </p>
+
+        <div class="icon-box">🚶‍♂️</div>
+
+        <p>しかも方角を変えるだけで全部変わる。</p>
+        <p>北に行けば上野。アメ横のごちゃごちゃを抜けて、上野公園の緑の中を歩く。博物館の荘厳な建物を横目に、不忍池のほとりをぐるっと回る。湾岸の「未来都市」とは全然違う、「歴史」の空気。同じ東京なのに別の国みたいだ。</p>
+        <p>西に行けば新宿。ビルの谷間を縫うように歩いて、ゴールデン街の小さな扉の前を通って、新宿御苑の芝生に出る。人間の密度と緑の密度が交互に来る不思議なリズム。</p>
+        <p>もっと西に行けば、景色がガラッと変わる。駅と駅の間が広くなって、ビルが低くなって、住宅街が広がって、ちょっと外れたら畑がある。東京にも畑がある。嘘みたいだけど本当だ。さっきまでタワーマンション見てた目で、ネギ畑を見てる。この振れ幅が東京だ。
+        </p>
+        <p>ちょっと足を伸ばそうか。</p>
+        <p>グリーン車に乗る。これも散歩の一部だ。移動込みで散歩。山梨に向かう。車窓の景色がどんどん変わっていって、ビルが山に置き換わる。河口湖に着いたら、富士山がドンと構えてる。その周りを歩く。空気が違う。湿度が違う。音が違う。足元の砂利の感触が違う。全部違う。でも「歩いてる」っていう行為は同じ。同じことをしてるのに、場所が変わるだけで全部変わる。これが散歩のバグ技だ。
+        </p>
+        <p>神奈川にも行く。江ノ島。歩いて一周するのに3時間かかる。3時間だぜ。あの小さい島に見えるやつが。でも歩いてみると全然小さくない。裏側に回ると断崖絶壁があって、岩場から海を見下ろすと足がすくむ。表と裏で全然違う。人間みたいだな、って思う。
+        </p>
+
+        <div class="scene-break">✨</div>
+
+        <p>趣味が欲しいって言ってる人、たまに見かける。</p>
+        <p>甘えんな。</p>
+        <p>いや、甘えんなは言いすぎた。でもマジで、まず歩け。散歩しろ。金いらない。道具いらない。スキルいらない。体力がなくても大丈夫、最初は30分でいい。靴履いて外出て、適当に歩け。それだけでいい。</p>
+        <p>これが究極に楽な趣味で、しかも究極に深い趣味だ。矛盾してるようだけど本当だ。敷居はゼロなのに天井がない。歩けば歩くほど楽しくなる。場所を変えれば新しい発見がある。季節が変われば同じ道でも違う景色になる。一生飽きない。断言する。
+        </p>
+
+        <div class="scene-break">🍺</div>
+
+        <p>で——ここからが本題だ。</p>
+        <p><span class="highlight">散歩飲み。</span></p>
+        <p>知ってるか？ 知らないならこれから知ってくれ。人生が変わるから。</p>
+        <p>やり方はシンプルだ。友達と歩く。コンビニで酒とつまみを買う。歩きながら飲む。喋る。それだけ。</p>
+        <p>それだけなんだけど——これがとんでもないことになる。</p>
+        <p>19時スタート。ストロング缶を片手に、適当な方向に歩き出す。最初はまあ普通の会話だ。「最近仕事どう？」「あの店潰れたの知ってた？」「来月ちょっと旅行行こうぜ」。</p>
+        <p>1時間経つ。2本目を開ける。会話のギアが上がってくる。「いや待って、さっきの話なんだけどさ」「それってつまりこういうことじゃね？」「いやいやいや、俺はこう思うんだけど」。足が止まらない。口も止まらない。</p>
+        <p>2時間経つ。3本目。もう話題が縦横無尽だ。経営のアイデアが出る。「これAIで自動化したらさ」「いやそれマジでいけるって、コスト計算してみようぜ」。政治の話が出る。「あの演説さ、論理的には破綻してるけど感情の持っていき方がうまいよな」。人生の話が出る。「俺たちさ、10年後どうなってると思う？」。
+        </p>
+        <p>3時間経つ。時計を見る。22時。え、もう3時間？ 嘘だろ。体感45分だぞ。</p>
+        <p>4時間経つ。完全にゾーンに入ってる。2人とも、3人でも4人でも、全員の脳がビキビキになってる。アイデアが次から次に出てくる。止まらない。「これ今すぐPCに向かいてえ」「AIに相談したい」「やべえこれメモしなきゃ」。酒が入って、歩いて血流が良くなって、夜風が気持ちよくて、友達と喋ってて。全部のいい条件が重なって、脳が完全に解放されてる。
+        </p>
+        <p>5時間経つ。</p>
+        <p>気づいたら24時だ。</p>
+        <p>「やべえ、もう0時じゃん」</p>
+        <p>「いやマジか」</p>
+        <p>「……ラーメン食おうぜ」</p>
+        <p>「食おう」</p>
+        <p>湧き溢れたアイデアと空っぽの胃袋を抱えて、深夜のラーメン屋に吸い込まれる。味噌。替え玉。にんにくマシ。さっきまで人類の未来について語ってた口で、チャーシューの厚みについて語り始める。最高。人間って最高。</p>
+        <p>帰り道、ふと思う。</p>
+        <p>今日の散歩、ストロング缶3本とつまみとラーメン代で——2,000円くらいか。</p>
+        <p>2,000円で5時間の極上エンターテインメント。脳みそフル回転。友達との最高の時間。一生モノのアイデアが3つか4つ。ラーメンも食えた。</p>
+        <p>こんなコスパのいい幸せの摂取方法、他にあるか？ ないだろ。ないんだよ。</p>
+
+        <div class="icon-box">🌌</div>
+
+        <p>散歩は究極だ。</p>
+        <p>一人で歩けば内省の時間になる。AIと喋れば知識が広がる。友達と歩けばアイデアが爆発する。酒を持てば脳のリミッターが外れる。場所を変えれば世界が広がる。全部、歩くだけ。</p>
+        <p>だから——もし興味ある人がいたら、マジで連絡してくれ。</p>
+        <p>一人散歩でも散歩飲みでも、どっちでも付き合う。行き先は適当でいい。コンビニで何買うかだけ決めてくれたら、あとは足が勝手に連れてってくれる。</p>
+        <p>5時間後、お前の脳はビキビキになってる。保証する。</p>
+        <p>歩こうぜ。</p>
+        <p>この街はまだまだ面白い。この国はまだまだ面白い。この世界はまだまだ面白い。</p>
+        <p>全部、歩いて確かめに行こう。</p>
+    </div>
+
+    <script>
+        // Generate sparkles
+        const container = document.getElementById('sparkles');
+        const sparkleCount = 80;
+
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+
+            // Random position
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+
+            // Random size
+            const size = Math.random() * 5 + 2 + 'px';
+            sparkle.style.width = size;
+            sparkle.style.height = size;
+
+            // Random delay
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+
+            container.appendChild(sparkle);
+        }
+    </script>
+</body>
+
+</html>

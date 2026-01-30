@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卓球バカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #222;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Table Tennis Table Blue with Net White */
+            background:
+                linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.8) 49.5%, rgba(255, 255, 255, 0.8) 50.5%, transparent 50.5%),
+                linear-gradient(0deg, #1e3c72 0%, #2a5298 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px 20px;
+            padding: 60px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        /* Red/Black Rubber decoration */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #cc0000 50%, #111 50%);
+        }
+
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+
+        .jp-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #cc0000;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #888;
+            text-align: right;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.3);
+            font-weight: bold;
+            padding: 0 2px;
+        }
+
+        .scene-break {
+            text-align: center;
+            margin: 3rem 0;
+            color: #aaa;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 0.5em;
+        }
+
+        /* Ping Pong Ball Animation */
+        .ball {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            pointer-events: none;
+            animation: bounce 2s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translate(-300px, -200px) scale(1);
+            }
+
+            25% {
+                transform: translate(300px, 0) scale(0.8);
+            }
+
+            /* Hit table */
+            50% {
+                transform: translate(-300px, 200px) scale(1);
+            }
+
+            75% {
+                transform: translate(-350px, 0) scale(0.9);
+            }
+
+            /* Hit table */
+        }
+
+        .racket-icon {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .ball {
+                display: none;
+                /* Hide animation on mobile for performance/visibility */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+    <div class="container">
+        <h1>PING PONG CRAZY</h1>
+        <div class="jp-title">卓球バカ、あるいは白い球に人生を変えられた男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p>親父がやってた。兄貴二人もやってた。家の居間に、なぜかラケットが3本転がってる家庭で育った。</p>
+        <p>卓球。</p>
+        <p>ピンポン、って呼ぶ奴もいるけど、あれはちょっと違う。温泉旅館の浴衣で打つやつと、俺がやってたやつは別の競技だ。少なくとも俺の中では。</p>
+        <p>中学に入って、部活を選ぶとき、迷いはゼロだった。</p>
+        <p>親父のフォアドライブは低くて速くて、リビングのソファに座りながら「今のは引きつけが足りねえな」とかテレビの試合にケチつけてた。上の兄貴はバックハンドが異常にうまくて、二番目の兄貴はサーブが変態的に切れてた。日曜日に3人で市民体育館に行くのを、ガキの頃からずっと後ろで見てた。ラケットを持つ手が、ラバーの匂いが、台に当たるカコンって音が——全部かっこよかった。
+        </p>
+        <p>やりたかった。ずっと。</p>
+        <p>入部届を出した日のことは覚えてない。でも初めてラケットを握った日のことは覚えてる。</p>
+        <p>赤と黒のラバー。握ったら手の中にぴったり収まって、素振りしたら空気を切る音がした。ボールを打ったら——なんだこれ。跳ねた。台の上で、白い球が弾んで、相手のコートに落ちた。ただそれだけのことなのに、全身に電気が走った。
+        </p>
+        <p>水泳もやった。テニスもやった。どっちもめちゃくちゃ楽しかった。水の中を進む感覚も、ガットにボールが食いつく瞬間も、今でも大好きだ。スポーツってやっぱすげえなって思わせてくれた競技たち。</p>
+        <p>でも卓球は、もう一段階違った。「楽しい」の向こう側に連れていかれた。</p>
+        <p>ハマった。</p>
+        <p>とんでもなくハマった。</p>
+
+        <div class="racket-icon">🏓</div>
+
+        <p>フォア打ちの反復練習が好きだった。100回、200回、同じフォームで打ち続ける。退屈？
+            全然。1球ごとに微妙に違うんだよ。打点が1ミリずれる。手首の角度が0.5度変わる。その誤差を修正しながら、理想のフォームに近づけていく作業。地味だけど、これが面白い。</p>
+        <p>バック打ちも好きだった。フォアより窮屈で、体の前で処理しなきゃいけないから、フットワークと体幹がモロに出る。最初は全然安定しなくて、球があっちこっちに飛んでった。でも1ヶ月、2ヶ月やってるうちに、コースが揃ってくる。その「揃ってくる」瞬間が気持ちいい。
+        </p>
+        <p>ツッツキ練習。地味の極致だ。台の上の低い球を、ラケットの面を開いてスーッと返す。回転をかけて、ネットすれすれに落とす。スマッシュみたいな派手さはゼロだけど、試合ではこの地味な技術がモノを言う。ツッツキが甘いと一発で打ち抜かれる。だから練習する。ひたすら練習する。
+        </p>
+        <p>3球目攻撃。サーブ出して、返ってきた球を3球目で仕留める。卓球のラリーの中で最初に「攻撃」が入る瞬間。これを決めたときの快感は、たぶんスポーツの中で一番短くて一番鋭い。0.何秒の世界で、判断して、振って、入る。入ったときの「パンッ」って音。あの音が好きで卓球やってたまである。
+        </p>
+        <p>フリーの練習もいい。実戦形式で、何でもありで打ち合う。練習で磨いた技術が、相手との駆け引きの中でどこまで通用するか試す時間。ここで初めて「卓球って格闘技だな」って思った。台を挟んでるけど、やってることは殴り合いだ。
+        </p>
+
+        <div class="scene-break">///</div>
+
+        <p>部活の時間だけじゃ足りなかった。</p>
+        <p>マジで足りない。放課後の2時間なんて一瞬で終わる。もっと打ちたい。もっとうまくなりたい。その欲が抑えられなくて、途中からクラブチームにも入った。部活で打って、クラブで打って、家に帰ってもラケット握って素振りして。風呂の中でフォームのイメージトレーニングして。
+        </p>
+        <p>思春期の中学生男子が費やすエネルギーの99パーセントを卓球に突っ込んでた。残りの1パーセントは——まあ、給食のことでも考えてたんだろう。</p>
+        <p>副キャプテンになった。</p>
+        <p>これがまた、ガチガチに厳しかった。思春期の真面目さって、ブレーキがないんだよ。「強くなりたい」が「全員強くならなきゃいけない」に変換されて、後輩にも同期にも容赦なかった。</p>
+        <p>「フォームが崩れてる、もう50本」</p>
+        <p>「サーブの回転が足りない、やり直し」</p>
+        <p>「なんで昨日教えたこと忘れてんの」</p>
+        <p>今思えば、嫌な先輩だったかもしれない。でもあのとき俺の頭の中にあったのは「どうやったらもっとうまくなれるか」だけで、それを全員に求めてた。全員が同じ熱量で卓球に向き合ってると思い込んでた。思春期の全能感っていうか、視野の狭さっていうか。
+        </p>
+
+        <div class="scene-break">///</div>
+
+        <p>休みの日。</p>
+        <p>卓球の練習がない日は何をしてたかっていうと——卓球を見てた。</p>
+        <p>YouTubeを開いて、プロの試合を見る。朝起きてから夜寝るまで。ぶっ通しで16時間とか見てた。誇張じゃなくて、マジで16時間。飯を食ってる間もスマホで見てた。</p>
+        <p>世界ランキングを全部覚えてた。1位から50位まで、名前と国とプレースタイルがセットで頭に入ってた。あの中国の選手はフォアドライブの威力がバケモノで、あのドイツの選手はブロックが異常に硬くて、あの日本の選手はサーブのバリエーションが鬼で。
+        </p>
+        <p>観察するのが好きだった。</p>
+        <p>あの選手、なんであんなに脱力して見えるのに球が速いんだろう。体の使い方が違う。膝の曲げ方、腰の回し方、インパクトの瞬間だけ力を入れて、あとは全部抜いてる。だから疲れない。だから何時間でも質が落ちない。</p>
+        <p>逆にこっちの選手はガチガチに力入ってるように見えるけど、実はそう見えるだけで、体幹がしっかりしてるから末端が安定してる。見た目の「力み」と実際の「力の流れ」は違う。</p>
+        <p>——もしかしたら、今の俺の「人間観察が好き」って性格、ここから来てるのかもしれない。プロの試合を16時間見続けて、体の動き一つ一つを分析してたあの時間が、観察の筋トレになってたのかもしれない。卓球が、俺の目を鍛えた。
+        </p>
+
+        <div class="racket-icon">🏓</div>
+
+        <p>でも。</p>
+        <p>ここまでやっても、強くはなれなかった。</p>
+        <p>練習量はあった。知識もあった。分析力も、たぶん同年代の中では上の方だった。でも試合になると勝てない。練習でできることが本番でできない。頭ではわかってるのに、体がついてこない。</p>
+        <p>センスがなかったんだと思う。</p>
+        <p>スポーツにはどうしても「持って生まれたもの」がある。反応速度、空間認識能力、体の柔軟性。練習で埋められる差と、埋められない差がある。俺は後者に阻まれた。</p>
+        <p>悔しかったか？
+            悔しかった。めちゃくちゃ悔しかった。あれだけやったのに、なんで。16時間プロの試合見て、毎日素振りして、クラブにも通って。なのに県大会で早々に消える。才能ある奴が軽々と超えていく壁に、俺は何度ぶつかっても跳ね返された。
+        </p>
+        <p>でも——不思議なことに、嫌いにはならなかった。</p>
+        <p>一度も。</p>
+        <p>卓球を嫌いになった瞬間が、マジで一秒もない。</p>
+        <p>強くなれなくても、打ってるだけで楽しい。フォア打ちの反復が楽しい。バックハンドのコースが揃ったときの快感。サーブが狙い通りに切れたときの「来た」って感覚。試合で3球目が決まったときの音。全部、今でも楽しい。</p>
+        <p>何時間やっても疲れない。体力的には疲れるけど、心が疲れない。「もういいや」が来ない。「もう1セットだけ」が永遠に続く。</p>
+        <p>たぶんこれが、本当に好きなものの特徴なんだと思う。</p>
+        <p>結果が出なくても好きでいられるもの。才能がなくても続けたいもの。それが本物だ。恋愛と一緒だな。スペックじゃなくて、一緒にいて疲れない相手が本物っていう。</p>
+        <p>卓球は俺にとって、そういう存在だ。</p>
+        <p>スポーツに対する人生観を変えた。「勝つためにやる」んじゃなくて、「楽しいからやる」。それでいいんだって教えてくれた。勝てなくても、センスがなくても、好きなものは好きでいい。練習の反復が楽しいなら、それだけで十分すぎる理由だ。
+        </p>
+        <p>だから——卓球好きの人がいたら、マジで声かけてほしい。</p>
+        <p>一緒にやろうぜ。</p>
+        <p>別にうまくなくていい。俺もうまくない。でもラケット握って、球を打って、台の上であの白い球が弾む音を聞いたら——たぶん笑ってる。二人とも。</p>
+        <p>何時間でもやろう。</p>
+        <p>疲れないから。心は。</p>
+    </div>
+</body>
+
+</html>

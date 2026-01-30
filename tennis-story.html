@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テニスバカ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Knewave&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+            /* Hard Court Blue Background */
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        /* Tennis Ball Texture/Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(#c7f464 15%, transparent 16%),
+                radial-gradient(#c7f464 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px 20px;
+            padding: 60px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+            border-left: 10px solid #c7f464;
+            /* Tennis Ball Green */
+        }
+
+        h1 {
+            font-family: 'Knewave', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #2980b9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 0px #c7f464;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            font-weight: 700;
+            border-bottom: 3px solid #c7f464;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #95a5a6;
+            text-align: right;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        .highlight-name {
+            font-weight: bold;
+            color: #e74c3c;
+            border-bottom: 2px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .highlight-djokovic {
+            background: linear-gradient(120deg, transparent 0%, transparent 60%, #c7f464 60%, #c7f464 100%);
+            padding: 0 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .scene-break {
+            text-align: center;
+            margin: 4rem 0;
+            font-size: 2rem;
+            color: #c7f464;
+            text-shadow: 1px 1px 0 #95a5a6;
+        }
+
+        /* Tennis Ball Animation */
+        .tennis-ball {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at 35% 35%, #eaffb0, #c7f464);
+            border-radius: 50%;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            animation: serve 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            top: -100px;
+            left: 50%;
+        }
+
+        /* White curve on ball */
+        .tennis-ball::before,
+        .tennis-ball::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+        }
+
+        @keyframes serve {
+            0% {
+                top: -100px;
+                left: 10%;
+                transform: scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            50% {
+                top: 90vh;
+                left: 80%;
+                transform: scale(0.5);
+            }
+
+            /* Impact */
+            100% {
+                top: 20vh;
+                left: 120%;
+                transform: scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .quote-box {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: #ecf0f1;
+            background: #34495e;
+            padding: 2rem;
+            margin: 3rem -40px;
+            text-align: center;
+            transform: skew(-5deg);
+        }
+
+        .quote-box span {
+            display: block;
+            transform: skew(5deg);
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 10px;
+                border-left: 5px solid #c7f464;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .quote-box {
+                margin: 2rem -10px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tennis-ball"></div>
+
+    <div class="container">
+        <h1>TENNIS CRAZY</h1>
+        <div class="subtitle">テニスバカ、あるいはジョコビッチに泣く男</div>
+        <p class="disclaimer">※本作はフィクションを含みます。実在の人物・団体・出来事を基にしている部分もありますが、演出や脚色を加えています。</p>
+
+        <p>テーブルテニスとテニス。</p>
+        <p>名前は似てるけど、別の競技だ。台の上の白い球を追いかけてた男が、コートの上の黄色い球を追いかけ始めた。きっかけは一人の日本人だった。</p>
+        <p>2014年。<span class="highlight-name">錦織圭</span>。全米オープン準優勝。</p>
+        <p>9月の日本が沸いた。テニスなんか見たことない人までテニスの話をしてた。コンビニのおばちゃんが「錦織くんすごいわね」って言ってた。日本中がそうだった。</p>
+        <p>俺はそのとき中学生で、親父と一緒にテレビを見てた。卓球にどっぷりハマってた時期だ。でも錦織の試合を見たとき——なんか、体がうずいた。卓球とは違う何かがあった。もっとデカくて、もっと速くて、もっと体全体を使う何か。
+        </p>
+        <p>で、12月。ATPツアーファイナル。</p>
+        <p>年間トップ8しか出られない、テニスの序列で言えばグランドスラムの次にデカい大会。錦織がそこにいた。日本人として。</p>
+        <p>結果は——準決勝には進めなかった。当然だ。そこにいたのはテニスの神々だったから。</p>
+        <p><span class="highlight-djokovic">ジョコビッチ</span>。<span class="highlight-name">フェデラー</span>。<span
+                class="highlight-name">ナダル</span>。</p>
+        <p>この3人を「神」って呼ぶのは比喩じゃない。マジで人間じゃない。人間の形をした何か別のものだ。次点でマレーとワウリンカ。この2人も人間離れしてるけど、あの3人の前では「すごい人間」止まりだ。神と人間の差はそのくらい残酷だ。
+        </p>
+        <p>でもその神々の中に、錦織がいた。同じコートに立ってた。それだけで涙が出た。</p>
+
+        <div class="scene-break">🎾</div>
+
+        <p>高校でテニスを始めた。</p>
+        <p>卓球を捨てたわけじゃない。卓球は今でも大好きだ。でも体が求めてた。もっと走りたい。もっと汗をかきたい。もっと全身を使いたい。水泳もやったけど、あれは負荷が高すぎた。肺が破裂するかと思った。テニスはちょうどよかった。走って、打って、考えて。全部ある。しかもボールが卓球より5倍デカくて遅い——かと思いきや、全然遅くない。コートが広い分、カバーする範囲が桁違いだ。
+        </p>
+        <p>ハマった。卓球と同じ熱量で。</p>
+        <p>高1から始めた。今26歳。10年。10年間、テニスを見続けてる。</p>
+        <p>テニスの試合を見た時間、概算——<span class="highlight-djokovic">3万時間</span>。</p>
+        <p>3万時間。これ、どういう量かわかるか。1日8時間見たとして、3,750日。10年以上。実際は1日8時間も見てないけど、休みの日に12時間とか16時間とか見てた日が何百回もあるから、たぶんそのくらいになる。卓球の16時間が可愛く見えてくる。テニスはもっとだ。遥かにもっとだ。
+        </p>
+        <p>身長が高いから、サーブが楽しかった。</p>
+        <p>トスを上げて、体を弓なりに反らせて、最高到達点でインパクト。ラケットが振り下ろされて、ボールがネットの向こう側に叩き込まれる。</p>
+        <p>「これ170キロ出てんじゃね？」</p>
+        <p>出てない。たぶん。計測したことないけど、プロが200キロ出すフォームを真似してるから、体感としてはそのくらいの気持ちで打ってる。気持ちだけは世界ランカーだ。</p>
+
+        <div class="scene-break">🎾</div>
+
+        <p>で——ここが俺の悪い癖なんだけど。</p>
+        <p>プロの真似をする。</p>
+        <p>卓球のときもそうだった。プロの試合を何千時間も見てるから、全選手のフォームが頭に入ってる。で、それを自分の体でやりたくなる。やっちゃう。</p>
+        <p>今日はジョコビッチのフォアで行こう。あの超安定したストローク。膝を深く曲げて、体の回転で打つ。無駄な力がゼロ。世界で一番効率的なフォアハンド。</p>
+        <p>明日は錦織のバックで。両手バックハンドのダウンザライン。あのライジングで捉える天才的なタイミング。体が小さいからこそ生まれる独特の角度。</p>
+        <p>サーブも日替わりだ。</p>
+        <p>ジョコビッチのサーブ。安定感の塊。コースの出し分けが芸術的。</p>
+        <p>フェデラーのサーブ。流れるようなモーション。美しすぎて見とれる。打つ前から芸術。</p>
+        <p>ナダルのサーブ。あの異常なルーティン。パンツを直して、鼻を触って、髪を耳にかけて。やってみたら意外とリズムが作れる。</p>
+        <p>錦織のサーブ。コンパクトなのにキレがある。日本人の体格でこれだけ打てるっていう希望。</p>
+        <p>キリオスのサーブ。あの天才の所業。ノールックで打つ。真似したらダブルフォルト3連発した。</p>
+        <p>チリッチのサーブ。身長198センチの暴力。高さからの角度が人間の返球能力を超えてくる。俺も身長あるから、これ一番再現性高いかもしれない。</p>
+        <p>ワウリンカのサーブ。これが一番長く使った。なぜかしっくり来た。トスの位置とテイクバックのリズムが、俺の体に合ってたんだと思う。</p>
+        <p>でも結局——定まらなかった。</p>
+        <p>全部打てる。全部それなりに打てる。でも「これが俺のサーブだ」っていうのが、10年経っても見つからなかった。</p>
+
+        <div class="scene-break">🎾</div>
+
+        <p>フォアも同じだ。</p>
+        <p>左利きだから、右手のフォロースルーの取り方がめちゃくちゃ気になる。フォアを打った後の右手。ここに選手の個性が全部出る。</p>
+        <p>顔の横でピタッと止める人がいる。ちょっとおねえっぽく見えるけど、あれはバランスを取ってる。合理的だ。</p>
+        <p>歌舞伎みたいにまっすぐ右手が前に出る人もいる。見栄を切ってるみたいでかっこいい。</p>
+        <p>肘をガンッて後ろに引く人もいる。後ろに人がいたら肘打ちで病院送りにするレベル。でもあれで回転運動のエネルギーを相殺してるんだ。物理的に理にかなってる。</p>
+        <p>テイクバックもそうだ。ラケットを左斜め上に引く人。真下にストンと落とす人。真横に引く人。全部違う。全部に理由がある。全部にメリットとデメリットがある。</p>
+        <p>面白いんだよ、フォームって。</p>
+        <p>これ、どのスポーツでもそうだけど、テニスは特にそうだ。個人競技で、全身運動で、フォームの自由度が異常に高い。だから選手の数だけフォームがある。骨格が違う。筋肉の付き方が違う。柔軟性が違う。だからフォームが違う。当然だ。
+        </p>
+        <p>で、俺は——自分に合ったフォームを見つけるべきだった。</p>
+        <p>身長が同じ選手を参考にして、自分の体の特性を理解して、一つのフォームを何年も繰り返して体に染み込ませる。それが正しい上達法だ。わかってる。理屈はわかってる。</p>
+        <p>でもさ。</p>
+        <p>憧れちゃうんだよ。</p>
+        <p>ジョコビッチのフォアを見たら、あれやりたくなる。フェデラーのバックハンドを見たら、片手バックに転向したくなる。ナダルのエッグボールを見たら、あの異常な回転量を再現したくなる。</p>
+        <p>3万時間も見てるんだ。全選手のフォームが脳に焼き付いてる。それを体で表現したくなるのは、もう本能だ。理性では「一つに絞れ」ってわかってても、感情が「全部やりたい」って叫んでる。</p>
+        <p>結果、花開かなかった。</p>
+        <p>高校のテニス部はそこまでガチな環境じゃなかったし、小学校からやってる経験者にはやっぱり勝てなかった。卓球と同じだ。練習量はあった。知識は誰にも負けなかった。でも結果が出なかった。</p>
+        <p>でも——楽しかった。</p>
+        <p>死ぬほど楽しかった。</p>
+        <p>コートに立ってボールを打ってる瞬間、生きてるって実感が全身に走る。サーブを打つ瞬間。フォアを振り抜く瞬間。ネットに出てボレーで決める瞬間。全部最高。結果なんて関係ない。いや、関係なくはないけど、楽しさの前では小さな話だ。
+        </p>
+
+        <div class="quote-box">
+            <span>NOVAK DJOKOVIC</span>
+        </div>
+
+        <p>さて——ジョコビッチの話をさせてくれ。</p>
+        <p>もうさっきからずっと名前出してるけど、ちゃんと語らせてくれ。</p>
+        <p>ノバク・ジョコビッチ。</p>
+        <p>俺の人生で愛する人を選べって言われたら——たくさんいるけど——ジョコビッチは絶対に入る。大谷翔平。ウサイン・ボルト。イチロー。そしてジョコビッチ。</p>
+        <p>この4人は本当に特別だ。同格。序列なんかつけられない。大谷は野球そのものだし、ボルトは人類の限界を走る姿そのものだし、イチローは求道者の生き方そのものだ。</p>
+        <p>そしてジョコビッチは——テニスそのものだ。</p>
+        <p>フェデラーは「芸術としてのテニス」だ。美しい。見てるだけで泣ける。でも芸術だ。ナダルは「闘志としてのテニス」だ。折れない。何度でも立ち上がる。でも闘志だ。</p>
+        <p>ジョコビッチは「テニスとしてのテニス」だ。</p>
+        <p>技術。戦術。体力。精神力。適応力。全部が最高レベルで、全部がバランスよく組み合わさってる。弱点がない。穴がない。どんなサーフェスでも勝てる。どんな相手にも対応できる。テニスというスポーツを完全に体現してる存在。</p>
+        <p>グランドスラム最多優勝。歴代最強。</p>
+        <p>フェデラーの優雅さに惚れる人がいるのもわかる。ナダルの不屈さに震える人がいるのもわかる。でも俺は——ジョコビッチの完全性に魂を持っていかれた。</p>
+        <p>高1で出会ってから、ずっとだ。</p>
+        <p>毎日、ジョコビッチの試合を見てた。勝った試合も負けた試合も。全盛期も、怪我で苦しんだ時期も。批判されてた時期も。コロナ禍のワクチン問題で叩かれてた時期も。全部見てた。</p>
+        <p>ジョコビッチが勝てば、俺の1日が最高になった。ジョコビッチが負ければ、俺の1日が沈んだ。自分の試合結果より、ジョコビッチの試合結果の方が感情を揺さぶる。おかしい。でも本当だ。</p>
+        <p>もう39歳になる。</p>
+        <p>テニス選手の39歳は、人間で言えば90歳みたいなもんだ。体が動く限界に近い。いや、もう超えてるのかもしれない。それでもまだコートに立ってる。まだ世界のトップと戦ってる。明日、準決勝。世界ランク2位との試合。</p>
+        <p>——ごめん、今ちょっと泣いてる。</p>
+        <p>テニスの話をしようと思ったのに、気づいたらジョコビッチの話になってた。でもしょうがないんだよ。俺のテニス人生はジョコビッチなんだ。ジョコビッチが俺の高1から26歳までの全部を彩ってくれた。毎日毎日、あの男のプレーを見て、「すげえ」って思って、真似して、失敗して、また見て。それが10年。それが3万時間。
+        </p>
+        <p>もうすぐいなくなる。</p>
+        <p>39歳のジョコビッチが、いつまでもコートに立ってるわけがない。いつか引退する。その日が来たら——俺はたぶん、しばらく立ち直れない。人生からテニスの神がいなくなる。毎日の楽しみの大きな柱が消える。</p>
+        <p>でも。</p>
+        <p>同じ時代に生きてた。それだけで十分だ。</p>
+        <p>同じ地球の上で、同じ空気を吸って、リアルタイムで彼のプレーを見れた。3万時間。嘘じゃない。その3万時間の一瞬一瞬が、俺のテニス人生の全部だ。</p>
+        <p>——結局、自分のテニスの話をしようと思ったのに、全部ジョコビッチの話になった。</p>
+        <p>でも趣味ってそういうもんだろ。</p>
+        <p>俺は本質的にオタクだ。好きなものに対する熱量が異常で、語り始めたら止まらなくて、気づいたら泣いてる。気持ち悪い？ うるせえ。好きなものに泣けるのは人生の特権だ。</p>
+        <p>みんな、ジョコビッチを見てくれ。</p>
+        <p>明日の準決勝、見てくれ。39歳の男が、世界ランク2位に挑むんだ。勝つかもしれない。負けるかもしれない。でもコートに立ってる。まだ立ってる。それだけですごいんだ。</p>
+        <p>頼む、愛してくれ。ジョコビッチを。</p>
+        <p>俺と一緒に。</p>
+    </div>
+</body>
+
+</html>
