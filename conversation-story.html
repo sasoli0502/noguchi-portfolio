@@ -127,10 +127,42 @@
                 font-size: 1.4rem;
             }
         }
+    
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+        }
     </style>
 </head>
 
 <body>
+    <nav class="top-nav">
+        <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+    </nav>
     <div class="shape circle" style="width:200px; height:200px; top:10%; left:10%; animation-delay:-5s;"></div>
     <div class="shape square" style="width:150px; height:150px; top:60%; right:15%; animation-delay:-2s;"></div>
     <div class="shape triangle" style="top:30%; right:20%; animation-delay:-8s;"></div>
@@ -233,6 +265,10 @@
         <p>明日の朝、事務所で資金繰り表とにらめっこしながらも、俺はたぶん考えてる。「今日は誰と喋れるかな」って。253万の心配より、そっちのほうがよっぽど大事だ。</p>
         <p>おかしいだろ、こいつ。</p>
         <p>でもまあ——おかしいまま生きていくよ。そのほうが楽しいから。</p>
+    
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 3rem 0 2rem 0;">
+            <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+        </div>
     </div>
 </body>
 

@@ -263,10 +263,42 @@
                 font-size: 2rem;
             }
         }
+    
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+        }
     </style>
 </head>
 
 <body>
+    <nav class="top-nav">
+        <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+    </nav>
     <div class="particles"></div>
     <div class="hand-effect"></div>
 
@@ -398,6 +430,10 @@
         <p>最後に一つだけ。</p>
         <p>とある魔術の禁書目録、小説全巻持ってます. バイブルです。</p>
         <p>異論は認めない。</p>
+    
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 3rem 0 2rem 0;">
+            <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+        </div>
     </div>
 </body>
 

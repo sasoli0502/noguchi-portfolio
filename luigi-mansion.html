@@ -119,8 +119,36 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
             border: none;
+        }
+
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(0, 255, 100, 0.15);
+            border: 2px solid #00ff66;
+            color: #00ff66;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 100, 0.3);
+            transform: translateX(-5px);
+            box-shadow: 0 4px 15px rgba(0, 255, 100, 0.4);
         }
 
         @media (max-width: 600px) {
@@ -140,6 +168,9 @@
 </head>
 
 <body>
+    <nav class="top-nav">
+        <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+    </nav>
     <div class="container">
         <h1>ルイージマンション狂いのバカ</h1>
 
@@ -371,7 +402,10 @@
             20年以上経った今でも、俺の中では神ゲーのまま。
         </p>
 
-        <a href="games-story.html" class="back-link">← ゲーム一覧に戻る</a>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+            <a href="profile.html" class="home-button">🏠 トップへ戻る</a>
+            <a href="games-story.html" class="back-link">← ゲーム一覧に戻る</a>
+        </div>
     </div>
 </body>
 
