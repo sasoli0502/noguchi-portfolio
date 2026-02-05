@@ -15,7 +15,8 @@ story_pages = [
     'table-tennis-story.html',
     'tennis-story.html',
     'travel-story.html',
-    'walking-story.html'
+    'walking-story.html',
+    'zelda-ocarina.html'
 ]
 
 # CSSスタイルを追加する関数
